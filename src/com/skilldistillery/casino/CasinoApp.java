@@ -28,24 +28,38 @@ public class CasinoApp {
 	}
 
 	public void blackJack() {
+		boolean keepGoing = true;
+		String yesNo = "";
 		System.out.println("Let's play Blackjack! Feeling Lucky???");
 		dealer.playGame();
 		player.playGame();
-		System.out.println("*Dealer shuffles deck*");
-		deck.shuffle();
-		System.out.println();
-		deal.firstDeal(); // Initiates games first deal
-		deal.playerCheck(); // Checks if player has Blackjack from start
-		decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
-		userDecision();
-		deal.playerCheck(); // Checks if player has black jack or has busted
-		// If not dealers turn
-		deal.nextDealDealer();
 
-		deal.dealerCheck(); // Checks if dealer has blackjack or has busted
-		deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
-		deal.dealerCheck(); // Checks if dealer has blackjack or has busted
-		deal.compareHands();
+		while (keepGoing) {
+			System.out.println("*Dealer shuffles deck*");
+			deck.shuffle();
+			System.out.println();
+			deal.firstDeal(); // Initiates games first deal
+			deal.playerCheck(); // Checks if player has Blackjack from start
+			decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
+			userDecision();
+			deal.playerCheck(); // Checks if player has black jack or has busted
+			// If not dealers turn
+			deal.nextDealDealer();
+
+			deal.dealerCheck(); // Checks if dealer has blackjack or has busted
+			deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
+			deal.dealerCheck(); // Checks if dealer has blackjack or has busted
+			deal.compareHands();
+			System.out.println("Another Game?");
+			System.out.println("Press Enter for yes or quit to stop: ");
+			yesNo = kb.next();
+			if (yesNo.equalsIgnoreCase("quit")) {
+				System.out.println("Thanks for playing!");
+				kb.close();
+				System.exit(0);
+			}
+
+		}
 
 	}
 
