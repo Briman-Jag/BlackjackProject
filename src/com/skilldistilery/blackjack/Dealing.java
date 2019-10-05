@@ -83,7 +83,6 @@ public class Dealing {
 			System.exit(0);
 		} else {
 			System.out.println();
-			System.out.println("________Next turn_________");
 		}
 
 	}
@@ -96,14 +95,14 @@ public class Dealing {
 			System.out.println();
 			System.out.println("Your losing hand:");
 			displayCardsAndValue(phand, playerValue);
-			System.exit(0);
+
 		} else if (bHand.isBust(dealerValue) == true) {
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("Dealer busts! You win!");
 			System.out.println();
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
-			System.exit(0);
+
 		} else {
 			System.out.println();
 		}
@@ -139,7 +138,7 @@ public class Dealing {
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
-			System.exit(0);
+
 		} else if (playerValue < dealerValue) {
 			System.out.println("You lose!");
 			System.out.println("Dealers winning hand:");
@@ -147,8 +146,7 @@ public class Dealing {
 			System.out.println();
 			System.out.println("You're losing hand:");
 			displayCardsAndValue(phand, playerValue);
-			System.out.println("!!!!!GAME OVER!!!!!");
-			System.exit(0);
+
 		} else {
 			System.out.println("PUSH!");
 			System.out.println("Card values are tied");
@@ -159,7 +157,7 @@ public class Dealing {
 			System.out.println();
 			System.out.println("Players Hand:");
 			displayCardsAndValue(phand, playerValue);
-			System.exit(0);
+
 		}
 	}
 
