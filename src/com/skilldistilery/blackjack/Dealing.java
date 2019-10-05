@@ -123,5 +123,32 @@ public class Dealing {
 		}
 		System.out.println("Total value = " + value);
 	}
+	
+	public void compareHands() {
+		if (playerValue > dealerValue) {
+			System.out.println("You win!");
+			System.out.println("Dealers losing hand");
+			displayCardsAndValue(dhand, dealerValue);
+			System.out.println("*****Winning hand*****");
+			displayCardsAndValue(phand, playerValue);
+			System.exit(0);
+		}
+		else if (playerValue > dealerValue) {
+			System.out.println("You lose!");
+			System.out.println("Dealers winning hand:");
+			displayCardsAndValue(dhand, dealerValue);
+			System.out.println();
+			System.out.println("You're losing hand:");
+			displayCardsAndValue(phand, playerValue);
+			System.out.println("!!!!!GAME OVER!!!!!");
+			System.exit(0);
+		}
+		else {
+			System.out.println("PUSH!");
+			System.out.println("Card values are tied");
+			System.out.println("No winner!");
+			System.exit(0);
+		}
+	}
 
 }

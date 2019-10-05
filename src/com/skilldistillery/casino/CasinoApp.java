@@ -45,7 +45,7 @@ public class CasinoApp {
 		deal.dealerCheck();		// Checks if dealer has blackjack or has busted
 		deal.dealerHitOrStay();	// Logic for dealer to decide to Hit or Stay
 		deal.dealerCheck();		// Checks if dealer has blackjack or has busted
-		
+		deal.compareHands();
 		
 
 	}
