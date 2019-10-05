@@ -71,45 +71,42 @@ public class Dealing {
 		dhand.add(c);
 		System.out.println(c.toString());
 	}
-	
+
 	public void playerCheck() {
-		
-		if(bHand.isBlackjack(playerValue) == true) {
+
+		if (bHand.isBlackjack(playerValue) == true) {
 			System.out.println("Player has Blackjack and wins!!!");
 			System.exit(0);
-		}
-		else if(bHand.isBust(playerValue) == true){
-			System.out.println("Busted! You Lose!");
+		} else if (bHand.isBust(playerValue) == true) {
+			System.out.println("You Lose!");
 			System.exit(0);
+		} else {
+			System.out.println("________Next turn_________");
 		}
-		else {
-			System.out.println("________Next turn______");
-		}
-		
+
 	}
 
 	public void dealerCheck() {
-		if(bHand.isBlackjack(dealerValue) == true) {
+		if (bHand.isBlackjack(dealerValue) == true) {
 			System.out.println("Dealer has Blackjack and wins! Game over!");
 			System.exit(0);
-		}
-		else if(bHand.isBust(dealerValue) == true ){
+		} else if (bHand.isBust(dealerValue) == true) {
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("Dealer busts! You win!");
+			System.out.println("*****Winning hand*****");
+			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
+		} else {
+			System.out.println("________Next turn________");
 		}
-		else {
-			System.out.println("________Next turn______");
-		}
-		
+
 	}
-	
+
 	public void dealerHitOrStay() {
-		if(dealerValue < 18) {
+		if (dealerValue < 18) {
 			System.out.println("*Dealer Hits*");
 			nextDealDealer();
-		}
-		else {
+		} else {
 			System.out.println("*Dealer Stays*");
 		}
 	}
