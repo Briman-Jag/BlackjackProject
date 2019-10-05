@@ -39,6 +39,7 @@ public class Dealing {
 		// Player being dealt second card
 		System.out.println("*The dealer deals your second card faceup*");
 		c = deck.dealCard();
+		System.out.println("[" + c.toString() + "]");
 		playerValue += c.getValue();
 		phand.add(c);
 		System.out.println("Your hand is:");
@@ -58,7 +59,7 @@ public class Dealing {
 		c = deck.dealCard();
 		playerValue += c.getValue();
 		phand.add(c);
-		System.out.println("Your hand is:");
+		System.out.println("Your hand is now:");
 		displayCardsAndValue(phand, playerValue);
 
 	}
@@ -77,7 +78,7 @@ public class Dealing {
 			System.out.println("Player has Blackjack and wins!!!");
 			System.exit(0);
 		}
-		else if(bHand.isBust(playerValue)){
+		else if(bHand.isBust(playerValue) == true){
 			System.out.println("Busted! You Lose!");
 			System.exit(0);
 		}
@@ -92,7 +93,7 @@ public class Dealing {
 			System.out.println("Dealer has Blackjack and wins! Game over!");
 			System.exit(0);
 		}
-		else if(bHand.isBust(dealerValue)){
+		else if(bHand.isBust(dealerValue) == true ){
 			System.out.println("Dealer busts! You win!");
 			System.exit(0);
 		}
@@ -104,11 +105,11 @@ public class Dealing {
 	
 	public void dealerHitOrStay() {
 		if(dealerValue < 18) {
-			System.out.println("Dealer Hits");
+			System.out.println("*Dealer Hits*");
 			nextDealDealer();
 		}
 		else {
-			System.out.println("Dealer Stays");
+			System.out.println("*Dealer Stays*");
 		}
 	}
 
