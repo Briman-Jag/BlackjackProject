@@ -71,9 +71,34 @@ public class Dealing {
 		System.out.println(c.toString());
 	}
 	
-	public void checkDealerHand(List<Card> hand) {
+	public void playerCheck() {
 		
+		if(bHand.isBlackjack(playerValue) == true) {
+			System.out.println("Player has Blackjack and wins!!!");
+			System.exit(0);
+		}
+		else if(bHand.isBust(playerValue)){
+			System.out.println("Busted! You Lose!");
+			System.exit(0);
+		}
+		else {
+			System.out.println("________Next turn______");
+		}
 		
+	}
+
+	public void dealerCheck() {
+		if(bHand.isBlackjack(dealerValue) == true) {
+			System.out.println("Dealer has Blackjack and wins! Game over!");
+			System.exit(0);
+		}
+		else if(bHand.isBust(dealerValue)){
+			System.out.println("Dealer busts! You win!");
+			System.exit(0);
+		}
+		else {
+			System.out.println("________Next turn______");
+		}
 		
 	}
 

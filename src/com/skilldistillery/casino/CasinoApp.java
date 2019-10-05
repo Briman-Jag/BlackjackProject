@@ -40,11 +40,11 @@ public class CasinoApp {
 		decisionMenu();
 		userDecision();
 		// Need to put methods to check if player has black jack or has busted
-		
+		deal.playerCheck();
 		// If not dealers turn
 		deal.nextDealDealer();
 		// Check if dealer has blackjack or has busted
-		
+		deal.dealerCheck();
 		// Otherwise decisionMenu and User Decision again
 
 	}
