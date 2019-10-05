@@ -70,6 +70,7 @@ public class Dealing {
 		dealerValue += c.getValue();
 		dhand.add(c);
 		System.out.println(c.toString());
+		System.out.println();
 	}
 
 	public void playerCheck() {
@@ -81,6 +82,7 @@ public class Dealing {
 			System.out.println("You Lose!");
 			System.exit(0);
 		} else {
+			System.out.println();
 			System.out.println("________Next turn_________");
 		}
 
@@ -89,14 +91,21 @@ public class Dealing {
 	public void dealerCheck() {
 		if (bHand.isBlackjack(dealerValue) == true) {
 			System.out.println("Dealer has Blackjack and wins! Game over!");
+			System.out.println("Dealers winning hand:");
+			displayCardsAndValue(dhand, dealerValue);
+			System.out.println();
+			System.out.println("Your losing hand:");
+			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
 		} else if (bHand.isBust(dealerValue) == true) {
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("Dealer busts! You win!");
+			System.out.println();
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
 		} else {
+			System.out.println();
 			System.out.println("________Next turn________");
 		}
 
@@ -147,6 +156,11 @@ public class Dealing {
 			System.out.println("PUSH!");
 			System.out.println("Card values are tied");
 			System.out.println("No winner!");
+			System.out.println();
+			System.out.println("Dealers Hand:");
+			displayCardsAndValue(dhand, dealerValue);
+			System.out.println();
+			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
 		}
 	}
