@@ -106,7 +106,6 @@ public class Dealing {
 			System.exit(0);
 		} else {
 			System.out.println();
-			System.out.println("________Next turn________");
 		}
 
 	}
@@ -141,7 +140,7 @@ public class Dealing {
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
-		} else if (playerValue > dealerValue) {
+		} else if (playerValue < dealerValue) {
 			System.out.println("You lose!");
 			System.out.println("Dealers winning hand:");
 			displayCardsAndValue(dhand, dealerValue);

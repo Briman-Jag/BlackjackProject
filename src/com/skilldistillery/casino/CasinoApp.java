@@ -39,6 +39,7 @@ public class CasinoApp {
 			deck.shuffle();
 			System.out.println();
 			deal.firstDeal(); // Initiates games first deal
+			deal.dealerCheck();
 			deal.playerCheck(); // Checks if player has Blackjack from start
 			decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
 			userDecision();
