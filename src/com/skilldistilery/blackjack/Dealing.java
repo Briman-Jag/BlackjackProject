@@ -2,7 +2,6 @@ package com.skilldistilery.blackjack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.skilldistillery.cards.Card;
 import com.skilldistillery.cards.Deck;
@@ -14,6 +13,7 @@ public class Dealing {
 	private List<Card> phand = new ArrayList<>();
 	private List<Card> dhand = new ArrayList<>();
 	private Deck deck = new Deck();
+	private BlackjackHand bHand = new BlackjackHand();
 
 	public Dealing() {
 
@@ -69,6 +69,12 @@ public class Dealing {
 		dealerValue += c.getValue();
 		dhand.add(c);
 		System.out.println(c.toString());
+	}
+	
+	public void checkDealerHand(List<Card> hand) {
+		
+		
+		
 	}
 
 	public void displayCard(List<Card> hand) {

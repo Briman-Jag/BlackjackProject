@@ -1,10 +1,13 @@
 package com.skilldistillery.casino;
 
+import java.util.List;
+
 import com.skilldistilery.blackjack.BlackjackHand;
+import com.skilldistilery.blackjack.Dealing;
+import com.skilldistillery.cards.Card;
 
 
 public class Dealer extends BlackjackHand implements Table{
-
 	@Override
 	public int getHandValue() {
 		
@@ -17,6 +20,9 @@ public class Dealer extends BlackjackHand implements Table{
 		System.out.println("[Dealer wait's patiently for their next challenger at the Blackjack Table]");
 		
 	}
+	
+
+	
 
 	
 }

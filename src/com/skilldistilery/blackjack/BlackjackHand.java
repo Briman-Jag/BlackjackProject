@@ -1,7 +1,7 @@
 package com.skilldistilery.blackjack;
 
 public class BlackjackHand extends Hand {
-	
+	private int value;
 	public BlackjackHand() {
 		
 	}
@@ -12,14 +12,21 @@ public class BlackjackHand extends Hand {
 		return 0;
 	}
 	// If hand value = 21
-	public boolean isBlackjack() {
-		
-		return true;
+	public boolean isBlackjack(int value) {
+		boolean blackj = false;
+		if (value == 21) {
+			blackj = true;
+		}
+		return blackj;
 	}
 	// if hand value > 21
-	public boolean isBust() {
-		
-		return true;
+	public boolean isBust(int value) {
+		boolean bust = false;
+		if(value < 21) {
+			bust = true;
+		}
+		System.out.println("Busted!");
+		return bust;
 	}
 	
 
