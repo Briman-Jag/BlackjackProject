@@ -160,6 +160,7 @@ public class Dealing {
 			System.out.println("Dealers Hand:");
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println();
+			System.out.println("Players Hand:");
 			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
 		}

@@ -67,6 +67,7 @@ public class CasinoApp {
 			case 1:
 				System.out.println("You HIT");
 				deal.nextDealPlayer();
+				decisionMenu();
 				break;
 			case 2:
 				System.out.println("You STAY");
@@ -75,6 +76,9 @@ public class CasinoApp {
 				System.out.println("Thanks for playing! Goodbye!");
 				kb.close();
 				System.exit(0);
+				break;
+			default:
+				System.out.println("Not a valid option!");
 			}
 		}
 	}
