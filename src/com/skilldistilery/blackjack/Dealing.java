@@ -101,6 +101,16 @@ public class Dealing {
 		}
 		
 	}
+	
+	public void dealerHitOrStay() {
+		if(dealerValue < 18) {
+			System.out.println("Dealer Hits");
+			nextDealDealer();
+		}
+		else {
+			System.out.println("Dealer Stays");
+		}
+	}
 
 	public void displayCard(List<Card> hand) {
 
