@@ -94,6 +94,7 @@ public class Dealing {
 			System.exit(0);
 		}
 		else if(bHand.isBust(dealerValue) == true ){
+			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("Dealer busts! You win!");
 			System.exit(0);
 		}
@@ -123,7 +124,7 @@ public class Dealing {
 		for (Card c : hand) {
 			System.out.println(c);
 		}
-		System.out.println("Total card value= " + value);
+		System.out.println("Total value = " + value);
 	}
 
 }

@@ -34,16 +34,14 @@ public class CasinoApp {
 		System.out.println("*Dealer shuffles deck*");
 		deck.shuffle();
 		System.out.println();
-		deal.firstDeal();
-		// Need method to check if player or dealer has blackjack already
-		
-		decisionMenu();
-		userDecision();
-		// Need to put methods to check if player has black jack or has busted
-		deal.playerCheck();
+		deal.firstDeal();		// Initiates games first deal
+		deal.playerCheck();		// Checks if player has Blackjack from start
+		decisionMenu();			// Brings up players option menu to Hit, Stay, or Quit
+		userDecision();			
+		deal.playerCheck();		// Checks if player has black jack or has busted
 		// If not dealers turn
 		deal.nextDealDealer();
-		// Check if dealer has blackjack or has busted
+		// Checks if dealer has blackjack or has busted
 		deal.dealerCheck();
 		deal.dealerHitOrStay();
 		deal.dealerCheck();
