@@ -112,12 +112,12 @@ public class Dealing {
 	}
 
 	public void dealerHitOrStay() {
-		if (dealerValue < 18) {
+		while (dealerValue < 18) {
 			System.out.println("*Dealer Hits*");
 			nextDealDealer();
-		} else {
-			System.out.println("*Dealer Stays*");
 		}
+		System.out.println("*Dealer Stays*");
+
 	}
 
 	public void displayCard(List<Card> hand) {
@@ -132,7 +132,7 @@ public class Dealing {
 		}
 		System.out.println("Total value = " + value);
 	}
-	
+
 	public void compareHands() {
 		if (playerValue > dealerValue) {
 			System.out.println("You win!");
@@ -141,8 +141,7 @@ public class Dealing {
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
 			System.exit(0);
-		}
-		else if (playerValue > dealerValue) {
+		} else if (playerValue > dealerValue) {
 			System.out.println("You lose!");
 			System.out.println("Dealers winning hand:");
 			displayCardsAndValue(dhand, dealerValue);
@@ -151,8 +150,7 @@ public class Dealing {
 			displayCardsAndValue(phand, playerValue);
 			System.out.println("!!!!!GAME OVER!!!!!");
 			System.exit(0);
-		}
-		else {
+		} else {
 			System.out.println("PUSH!");
 			System.out.println("Card values are tied");
 			System.out.println("No winner!");
