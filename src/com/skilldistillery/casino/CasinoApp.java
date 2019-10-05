@@ -44,10 +44,9 @@ public class CasinoApp {
 			userDecision();
 			deal.playerCheck(); // Checks if player has black jack or has busted
 			// If not dealers turn
-			deal.nextDealDealer();
-			deal.dealerCheck(); // Checks if dealer has blackjack or has busted
 			deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
 			deal.dealerCheck(); // Checks if dealer has blackjack or has busted
+//			deal.dealerCheck(); // Checks if dealer has blackjack or has busted
 			deal.compareHands();
 			
 			System.out.println("Another Game?");
