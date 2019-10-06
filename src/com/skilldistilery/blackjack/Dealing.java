@@ -20,9 +20,8 @@ public class Dealing {
 	}
 
 	public void firstDeal() {
-
+		System.out.println("*Dealer shuffles deck*");
 		deck.shuffle();
-
 		// Player being dealt first card
 		c = deck.dealCard();
 		playerValue += c.getValue();
@@ -42,8 +41,10 @@ public class Dealing {
 		System.out.println("[" + c.toString() + "]");
 		playerValue += c.getValue();
 		phand.add(c);
+		System.out.println();
 		System.out.println("Your hand is:");
 		displayCardsAndValue(phand, playerValue);
+		System.out.println();
 
 		// Dealer deals their second card face up
 		System.out.println("*The dealer deals their second card faceup*");
@@ -51,12 +52,13 @@ public class Dealing {
 		dealerValue += c.getValue();
 		dhand.add(c);
 		System.out.println(c.toString());
-		
+
 	}
 
 	public void nextDealPlayer() {
 		System.out.println("*Dealer deals next card*");
 		c = deck.dealCard();
+		System.out.println(c.toString());
 		playerValue += c.getValue();
 		phand.add(c);
 		System.out.println("Your hand is now:");
@@ -70,7 +72,6 @@ public class Dealing {
 		dealerValue += c.getValue();
 		dhand.add(c);
 		System.out.println(c.toString());
-		System.out.println();
 	}
 
 	public void playerCheck() {
@@ -79,6 +80,8 @@ public class Dealing {
 			System.out.println("Player has Blackjack and wins!!!");
 		} else if (bHand.isBust(playerValue) == true) {
 			System.out.println("You Lose!");
+			System.out.println("Too bad! Thanks for playing!");
+			System.exit(0);
 		} else {
 			System.out.println();
 		}
@@ -87,7 +90,7 @@ public class Dealing {
 
 	public void dealerCheck() {
 		if (bHand.isBlackjack(dealerValue) == true) {
-			System.out.println("Dealer has Blackjack and wins! Game over!");
+			System.out.println("Dealer has won! Game over!");
 			System.out.println("Dealers winning hand:");
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println();
@@ -105,19 +108,18 @@ public class Dealing {
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
 
-		} else {
-			System.out.println();
-		}
+		} 
 
 	}
 
 	public void dealerHitOrStay() {
 		while (dealerValue < 18) {
 			System.out.println("*Dealer Hits*");
-			nextDealDealer();	// Dealer deals themself next card
-			dealerCheck();		// Checks if dealer has blackjack or has busted	
+			nextDealDealer(); // Dealer deals their next card
+			dealerCheck(); // Checks if dealer has blackjack or has busted
 		}
-		System.out.println("*Dealer Stays*");
+		System.out.println("*Dealer STAYS and flips their facedown card*");
+		
 
 	}
 
@@ -139,6 +141,7 @@ public class Dealing {
 			System.out.println("You win!");
 			System.out.println("Dealers losing hand");
 			displayCardsAndValue(dhand, dealerValue);
+			System.out.println();
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
 			System.out.println("You got lucky! Good game!");

@@ -28,42 +28,24 @@ public class CasinoApp {
 	}
 
 	public void blackJack() {
-		boolean keepGoing = true;
-		String yesNo = "";
+
 		System.out.println("Let's play Blackjack! Feeling Lucky???");
 		dealer.playGame();
 		player.playGame();
 
-		while (keepGoing) {
-			System.out.println("*Dealer shuffles deck*");
-			deck.shuffle();
-			System.out.println();
-			deal.firstDeal(); // Initiates games first deal
-			deal.playerCheck(); // Checks if player has Blackjack from start
-			deal.dealerCheck();
-			decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
-			userDecision();
-			deal.playerCheck(); // Checks if player has black jack or has busted
-			// If not dealers turn
-			deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
-			deal.dealerCheck(); // Checks if dealer has blackjack or has busted			deal.dealerCheck(); // Checks if dealer has blackjack or has busted
-			deal.compareHands();
+		System.out.println();
+		deal.firstDeal(); // Initiates games first deal
+		deal.playerCheck(); // Checks if player has Blackjack from start
+		deal.dealerCheck();
+		decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
+		userDecision();
+		deal.playerCheck(); // Checks if player has black jack or has busted
+		// If not dealers turn
+		deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
+		deal.dealerCheck(); // Checks if dealer has blackjack or has busted deal.dealerCheck(); // Checks if
+							// dealer has blackjack or has busted
+		deal.compareHands();
 
-			System.out.println("Another Game?");
-			System.out.println("Enter yes or quit to stop: ");
-			yesNo = kb.next();
-			if (yesNo.equalsIgnoreCase("yes")) {
-				System.out.println("New Game!");
-			}
-			else if (yesNo.equalsIgnoreCase("quit")) {
-				System.out.println("Thanks for playing!");
-				keepGoing = false;
-			}
-			else {
-				System.out.println("Not a valid option!");
-			}
-			
-		}
 		kb.close();
 		System.exit(0);
 
@@ -87,6 +69,7 @@ public class CasinoApp {
 			case 1:
 				System.out.println("You HIT");
 				deal.nextDealPlayer();
+				deal.playerCheck();
 				decisionMenu();
 				break;
 			case 2:
