@@ -51,7 +51,7 @@ public class Dealing {
 		dealerValue += c.getValue();
 		dhand.add(c);
 		System.out.println(c.toString());
-//		System.out.println(deck.checkDeckSize() + " cards left in deck.");
+		
 	}
 
 	public void nextDealPlayer() {
@@ -65,7 +65,7 @@ public class Dealing {
 	}
 
 	public void nextDealDealer() {
-		System.out.println("*The dealer deals their third card faceup*");
+		System.out.println("*The dealer deals their next card faceup*");
 		c = deck.dealCard();
 		dealerValue += c.getValue();
 		dhand.add(c);
@@ -77,10 +77,8 @@ public class Dealing {
 
 		if (bHand.isBlackjack(playerValue) == true) {
 			System.out.println("Player has Blackjack and wins!!!");
-			System.exit(0);
 		} else if (bHand.isBust(playerValue) == true) {
 			System.out.println("You Lose!");
-			System.exit(0);
 		} else {
 			System.out.println();
 		}
@@ -95,6 +93,8 @@ public class Dealing {
 			System.out.println();
 			System.out.println("Your losing hand:");
 			displayCardsAndValue(phand, playerValue);
+			System.out.println("Too bad! Thanks for playing!");
+			System.exit(0);
 
 		} else if (bHand.isBust(dealerValue) == true) {
 			displayCardsAndValue(dhand, dealerValue);
@@ -102,6 +102,8 @@ public class Dealing {
 			System.out.println();
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
+			System.out.println("You got lucky! Good game!");
+			System.exit(0);
 
 		} else {
 			System.out.println();
@@ -112,7 +114,8 @@ public class Dealing {
 	public void dealerHitOrStay() {
 		while (dealerValue < 18) {
 			System.out.println("*Dealer Hits*");
-			nextDealDealer();
+			nextDealDealer();	// Dealer deals themself next card
+			dealerCheck();		// Checks if dealer has blackjack or has busted	
 		}
 		System.out.println("*Dealer Stays*");
 
@@ -138,6 +141,8 @@ public class Dealing {
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("*****Winning hand*****");
 			displayCardsAndValue(phand, playerValue);
+			System.out.println("You got lucky! Good game!");
+			System.exit(0);
 
 		} else if (playerValue < dealerValue) {
 			System.out.println("You lose!");
@@ -146,6 +151,8 @@ public class Dealing {
 			System.out.println();
 			System.out.println("You're losing hand:");
 			displayCardsAndValue(phand, playerValue);
+			System.out.println("Too bad! Thanks for playing!");
+			System.exit(0);
 
 		} else {
 			System.out.println("PUSH!");
@@ -157,6 +164,7 @@ public class Dealing {
 			System.out.println();
 			System.out.println("Players Hand:");
 			displayCardsAndValue(phand, playerValue);
+			System.exit(0);
 
 		}
 	}

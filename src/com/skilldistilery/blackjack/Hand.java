@@ -18,10 +18,6 @@ public abstract class Hand {
 		
 	}
 	
-	public void clear() {
-		
-	}
-	
 	public abstract int getHandValue();
 
 	@Override

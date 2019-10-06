@@ -1,6 +1,7 @@
 package com.skilldistillery.cards;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class Deck {
 	public Card dealCard() {
 		return cards.remove(0);
 	}
+
 	
 	// Takes card away from deck and then puts it into hand of dealer or player
 	public void dealCard(Hand hand) {

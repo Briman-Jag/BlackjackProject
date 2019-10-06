@@ -39,8 +39,8 @@ public class CasinoApp {
 			deck.shuffle();
 			System.out.println();
 			deal.firstDeal(); // Initiates games first deal
-			deal.dealerCheck();
 			deal.playerCheck(); // Checks if player has Blackjack from start
+			deal.dealerCheck();
 			decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
 			userDecision();
 			deal.playerCheck(); // Checks if player has black jack or has busted
