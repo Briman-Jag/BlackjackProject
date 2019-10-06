@@ -36,14 +36,14 @@ public class CasinoApp {
 		System.out.println();
 		deal.firstDeal(); // Initiates games first deal
 		deal.playerCheck(); // Checks if player has Blackjack from start
-		deal.dealerCheck();
+		deal.dealerCheck(); // Checks if dealer has blackjack or has busted
 		decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
-		userDecision();
+		userDecision(); // User chooses to HIT, STAY, or quit
 		deal.playerCheck(); // Checks if player has black jack or has busted
-		// If not dealers turn
+
+		// After player decides to stay and has not gone over 21
 		deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
-		deal.dealerCheck(); // Checks if dealer has blackjack or has busted deal.dealerCheck(); // Checks if
-							// dealer has blackjack or has busted
+		deal.dealerCheck();
 		deal.compareHands();
 
 		kb.close();
@@ -84,11 +84,6 @@ public class CasinoApp {
 				System.out.println("Not a valid option!");
 			}
 		}
-	}
-
-	// Use comparator to compare hand values of dealer and player if neither busts
-	public void compareHands() {
-
 	}
 
 }
