@@ -63,6 +63,7 @@ public class Dealing {
 		phand.add(c);
 		System.out.println("Your hand is now:");
 		displayCardsAndValue(phand, playerValue);
+		System.out.println();
 
 	}
 
@@ -77,14 +78,16 @@ public class Dealing {
 	public void playerCheck() {
 
 		if (bHand.isBlackjack(playerValue) == true) {
-			System.out.println("Player has Blackjack and wins!!!");
+			System.out.println("You got 21! Winner winner!!!");
+			System.out.println("*****Winning hand*****");
+			displayCardsAndValue(phand, playerValue);
+			System.out.println("You got lucky! Good game!");
+			System.exit(0);
 		} else if (bHand.isBust(playerValue) == true) {
 			System.out.println("You Lose!");
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
-		} else {
-			System.out.println();
-		}
+		} 
 
 	}
 
@@ -108,7 +111,7 @@ public class Dealing {
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
 
-		} 
+		}
 
 	}
 
@@ -119,7 +122,6 @@ public class Dealing {
 			dealerCheck(); // Checks if dealer has blackjack or has busted
 		}
 		System.out.println("*Dealer STAYS and flips their facedown card*");
-		
 
 	}
 
@@ -152,7 +154,7 @@ public class Dealing {
 			System.out.println("Dealers winning hand:");
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println();
-			System.out.println("You're losing hand:");
+			System.out.println("Your losing hand:");
 			displayCardsAndValue(phand, playerValue);
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
