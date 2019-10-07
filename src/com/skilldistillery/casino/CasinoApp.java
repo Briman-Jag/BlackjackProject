@@ -10,7 +10,7 @@ import com.skilldistillery.cards.Deck;
 
 public class CasinoApp {
 
-	Scanner kb = new Scanner(System.in);
+	private Scanner kb = new Scanner(System.in);
 	private Deck deck = new Deck();
 	private Dealing deal = new Dealing();
 	private Dealer dealer = new Dealer();
@@ -83,6 +83,7 @@ public class CasinoApp {
 				deal.nextDealPlayer();
 				deal.playerCheck();
 				decisionMenu();
+				userDecision();
 				break;
 			case 2:
 				System.out.println("You STAY");

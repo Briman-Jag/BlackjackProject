@@ -33,7 +33,6 @@ public class Deck {
 		return cards.remove(0);
 	}
 
-	
 	// Takes card away from deck and then puts it into hand of dealer or player
 	public void dealCard(Hand hand) {
 		dealCard(hand);
