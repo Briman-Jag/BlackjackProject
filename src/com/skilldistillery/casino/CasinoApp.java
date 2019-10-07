@@ -62,8 +62,8 @@ public class CasinoApp {
 	private void userDecision() {
 
 		int choice = 0;
+		choice = kb.nextInt();
 		while (choice != 2) {
-			choice = kb.nextInt();
 			switch (choice) {
 			// Uses nextDeal() to get next card and add it to playerValue
 			case 1:
@@ -82,7 +82,10 @@ public class CasinoApp {
 				break;
 			default:
 				System.out.println("Not a valid option!");
+				decisionMenu();
+				choice = kb.nextInt();
 			}
+
 		}
 	}
 

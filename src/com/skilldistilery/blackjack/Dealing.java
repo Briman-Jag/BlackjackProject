@@ -73,6 +73,7 @@ public class Dealing {
 		dealerValue += c.getValue();
 		dhand.add(c);
 		System.out.println(c.toString());
+		System.out.println();
 	}
 
 	public void playerCheck() {
@@ -103,6 +104,7 @@ public class Dealing {
 			System.exit(0);
 
 		} else if (bHand.isBust(dealerValue) == true) {
+			System.out.println("...Dealers losing hand...");
 			displayCardsAndValue(dhand, dealerValue);
 			System.out.println("Dealer busts! You win!");
 			System.out.println();
