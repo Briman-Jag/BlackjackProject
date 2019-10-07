@@ -62,41 +62,42 @@ public class CasinoApp {
 
 	private void userDecision() {
 
-		try {
-			int choice = 0;
-			choice = kb.nextInt();
-
-			while (choice != 2) {
-				switch (choice) {
-				// Uses nextDeal() to get next card and add it to playerValue
-				case 1:
-					System.out.println("You HIT");
-					deal.nextDealPlayer();
-					deal.playerCheck();
-					decisionMenu();
-					break;
-				case 2:
-					System.out.println("You STAY");
-					break;
-				case 3:
-					System.out.println("Thanks for playing! Goodbye!");
-					kb.close();
-					System.exit(0);
-					break;
-				default:
-					System.out.println("Not a valid option!");
-					decisionMenu();
-					choice = kb.nextInt();
-				}
-
+		int choice = 0;
+		boolean valid = false;
+		//	Do/while loop to ensure input is valid integer and not string
+		do {
+			if (kb.hasNextInt()) {
+				choice = kb.nextInt();
+				valid = true;
+			} else {
+				kb.nextLine();
+				System.out.println("Please enter valid number choice.");
 			}
-		} catch (InputMismatchException e) {
+		} while (!valid);
 
-			System.out.println("java.util.InputMismatchException");
+		while (choice != 2) {
+			switch (choice) {
 
-		} catch (Exception e) {
-			System.out.println(e);
+			case 1:
+				System.out.println("You HIT");
+				deal.nextDealPlayer();
+				deal.playerCheck();
+				decisionMenu();
+				break;
+			case 2:
+				System.out.println("You STAY");
+				break;
+			case 3:
+				System.out.println("Thanks for playing! Goodbye!");
+				kb.close();
+				System.exit(0);
+				break;
+			default:
+				System.out.println("Not a valid option!");
+				decisionMenu();
+				choice = kb.nextInt();
+			}
 		}
-	}
 
+	}
 }
