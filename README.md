@@ -20,7 +20,7 @@ The grading requirements for this project are:
 - The winner is displayed.
 
 ### How to run
-
+When the program is launched it will print dialogue about the game starting, deck being shuffled, and the first two cards dealt to the user and dealer. The users two cards are dealt first up, while the dealers first card is face down and second card is dealt face up. If neither user has scored 21 which is done with an Ace card worth 11 points and another card with a value of 10 points, then the user is prompt to either hit, stay or quit. After a hit it will allow the user to hit again unless they have reached or busted the 21 point score capacity. If they choose to stay then the dealer will decide to hit or stay itself with its relation to a 17 point value meaning it will hit until it is equal to or above 17. If neither of the participants at this point have Blackjack or have busted then the game will compare the two hands to see who wins the game by having the higher point value without going over 21 or determine the game is a tie or push if their scores are the same.
 
 
 ### Technologies/Topics Applied
