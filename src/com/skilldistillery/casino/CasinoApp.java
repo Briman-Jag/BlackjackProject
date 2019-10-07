@@ -75,29 +75,27 @@ public class CasinoApp {
 			}
 		} while (!valid);
 
-		while (choice != 2) {
-			switch (choice) {
+		switch (choice) {
 
-			case 1:
-				System.out.println("You HIT");
-				deal.nextDealPlayer();
-				deal.playerCheck();
-				decisionMenu();
-				userDecision();
-				break;
-			case 2:
-				System.out.println("You STAY");
-				break;
-			case 3:
-				System.out.println("Thanks for playing! Goodbye!");
-				kb.close();
-				System.exit(0);
-				break;
-			default:
-				System.out.println("Not a valid option!");
-				decisionMenu();
-				choice = kb.nextInt();
-			}
+		case 1:
+			System.out.println("You HIT");
+			deal.nextDealPlayer();
+			deal.playerCheck();
+			decisionMenu();
+			userDecision();
+			break;
+		case 2:
+			System.out.println("You STAY");
+			break;
+		case 3:
+			System.out.println("Thanks for playing! Goodbye!");
+			kb.close();
+			System.exit(0);
+			break;
+		default:
+			System.out.println("Not a valid option!");
+			decisionMenu();
+			choice = kb.nextInt();
 		}
 
 	}
