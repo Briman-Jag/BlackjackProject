@@ -64,7 +64,7 @@ public class CasinoApp {
 
 		int choice = 0;
 		boolean valid = false;
-		//	Do/while loop to ensure input is valid integer and not string
+		// Do/while loop to ensure input is valid integer and not string
 		do {
 			if (kb.hasNextInt()) {
 				choice = kb.nextInt();

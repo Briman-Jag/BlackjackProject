@@ -88,7 +88,9 @@ public class Dealing {
 			System.out.println("You Lose!");
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
-		} 
+		} else {
+			
+		}
 
 	}
 
