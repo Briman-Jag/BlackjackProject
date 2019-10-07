@@ -1,5 +1,6 @@
 package com.skilldistillery.casino;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -61,31 +62,40 @@ public class CasinoApp {
 
 	private void userDecision() {
 
-		int choice = 0;
-		choice = kb.nextInt();
-		while (choice != 2) {
-			switch (choice) {
-			// Uses nextDeal() to get next card and add it to playerValue
-			case 1:
-				System.out.println("You HIT");
-				deal.nextDealPlayer();
-				deal.playerCheck();
-				decisionMenu();
-				break;
-			case 2:
-				System.out.println("You STAY");
-				break;
-			case 3:
-				System.out.println("Thanks for playing! Goodbye!");
-				kb.close();
-				System.exit(0);
-				break;
-			default:
-				System.out.println("Not a valid option!");
-				decisionMenu();
-				choice = kb.nextInt();
-			}
+		try {
+			int choice = 0;
+			choice = kb.nextInt();
 
+			while (choice != 2) {
+				switch (choice) {
+				// Uses nextDeal() to get next card and add it to playerValue
+				case 1:
+					System.out.println("You HIT");
+					deal.nextDealPlayer();
+					deal.playerCheck();
+					decisionMenu();
+					break;
+				case 2:
+					System.out.println("You STAY");
+					break;
+				case 3:
+					System.out.println("Thanks for playing! Goodbye!");
+					kb.close();
+					System.exit(0);
+					break;
+				default:
+					System.out.println("Not a valid option!");
+					decisionMenu();
+					choice = kb.nextInt();
+				}
+
+			}
+		} catch (InputMismatchException e) {
+
+			System.out.println("java.util.InputMismatchException");
+
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 
