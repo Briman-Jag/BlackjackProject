@@ -24,6 +24,4 @@ When the program is launched it will print dialogue about the game starting, dec
 
 
 ### Technologies/Topics Applied
-Technologies and topics used in this project were: Enum, lists, ArrayLists,   arrays, getters & setters, method calling, while loops, switch, toString, booleans, menu interface, Collection sorting,
-
-### Lessons Learned
+Technologies and topics used in this project were: Enumerated types, lists, ArrayLists, arrays, getters & setters, method calling, while loops, switch, toString, booleans, menu interface, Collection sorting, Do/while loops, ASCII unicode, and game logic.
