@@ -6,7 +6,8 @@ import java.util.List;
 import com.skilldistillery.cards.Card;
 import com.skilldistillery.cards.Deck;
 
-public class Dealing {
+public class Dealer extends BlackjackHand {
+
 	private int playerValue;
 	private int dealerValue;
 	private Card c = new Card(null, null);
@@ -14,9 +15,15 @@ public class Dealing {
 	private List<Card> dhand = new ArrayList<>();
 	private Deck deck = new Deck();
 	private BlackjackHand bHand = new BlackjackHand();
+	
+	public Dealer() {
 
-	public Dealing() {
+	}
 
+	@Override
+	public int getHandValue() {
+
+		return 0;
 	}
 
 	public void firstDeal() {
@@ -89,7 +96,7 @@ public class Dealing {
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
 		} else {
-			
+
 		}
 
 	}
