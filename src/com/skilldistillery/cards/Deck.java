@@ -22,6 +22,7 @@ public class Deck {
 				deck.add( new Card(r,s));				
 			}
 		}
+		shuffle(deck);
 		return deck;
 	}
 
@@ -38,8 +39,8 @@ public class Deck {
 		dealCard(hand);
 	}
 
-	public void shuffle() {
-		Collections.shuffle(cards);
+	public void shuffle(List<Card> deck) {
+		Collections.shuffle(deck);
 
 	}
 

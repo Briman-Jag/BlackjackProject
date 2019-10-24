@@ -20,15 +20,9 @@ public class Dealer{
 
 	}
 
-	@Override
-	public int getHandValue() {
-
-		return 0;
-	}
 
 	public void firstDeal() {
 		System.out.println("*Dealer shuffles deck*");
-		deck.shuffle();
 		// Player being dealt first card
 		c = deck.dealCard();
 		playerValue += c.getValue();
