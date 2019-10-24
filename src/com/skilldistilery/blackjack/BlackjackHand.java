@@ -32,4 +32,10 @@ public class BlackjackHand extends Hand {
 		return bust;
 	}
 
+	@Override
+	public int addCard() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

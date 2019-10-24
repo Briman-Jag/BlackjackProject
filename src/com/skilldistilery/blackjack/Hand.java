@@ -13,7 +13,10 @@ public abstract class Hand {
 
 	}
 
-	public abstract int addCard();
+	public void addCard(Card card) {
+		cards.add(card);
+		
+	}
 
 	public abstract int getHandValue();
 

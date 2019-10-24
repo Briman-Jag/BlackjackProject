@@ -6,7 +6,7 @@ import java.util.List;
 import com.skilldistillery.cards.Card;
 import com.skilldistillery.cards.Deck;
 
-public class Dealer extends BlackjackHand {
+public class Dealer{
 
 	private int playerValue;
 	private int dealerValue;
