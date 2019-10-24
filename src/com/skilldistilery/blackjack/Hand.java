@@ -6,18 +6,15 @@ import java.util.List;
 import com.skilldistillery.cards.Card;
 
 public abstract class Hand {
-	
-	List<Card> cards = new ArrayList<>();
-	
-	
+
+	protected List<Card> cards = new ArrayList<>();
+
 	public Hand() {
-		
+
 	}
-	
-	public void addCard(Card card) {
-		
-	}
-	
+
+	public abstract int addCard();
+
 	public abstract int getHandValue();
 
 	@Override
@@ -28,7 +25,5 @@ public abstract class Hand {
 		builder.append("");
 		return builder.toString();
 	}
-	
-	
 
 }
