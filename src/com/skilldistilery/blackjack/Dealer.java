@@ -6,27 +6,28 @@ import java.util.List;
 import com.skilldistillery.cards.Card;
 import com.skilldistillery.cards.Deck;
 
-public class Dealer{
-
-	private int playerValue;
-	private int dealerValue;
+public class Dealer {
+	// DELETE as code related to fields are replaced
+//	private int playerValue;
+//	private int dealerValue;
 //	private Card c = new Card(null, null);
-	private List<Card> phand = new ArrayList<>();
-	private List<Card> dhand = new ArrayList<>();
+//	private List<Card> phand = new ArrayList<>();
+//	private List<Card> dhand = new ArrayList<>();
 	private Deck deck = new Deck();
-	private Hand bHand = new BlackjackHand();
+	private Hand dhand = new BlackjackHand(); // Dealers Hand
+	private Hand phand = new BlackjackHand();	// Players Hand
 	
 	public Dealer() {
 
 	}
 
-
 	public void firstDeal() {
 		System.out.println("*Dealer shuffles deck*");
 		// Player being dealt first card
-		c = deck.dealCard();
-		playerValue += c.getValue();
-		phand.add(c);
+		deck.dealCard(phand);
+
+//		playerValue += c.getValue();
+//		phand.add(c);
 		System.out.println("*The dealer deals your first card face up*");
 		displayCard(phand);
 
@@ -130,17 +131,18 @@ public class Dealer{
 
 	}
 
-	public void displayCard(List<Card> hand) {
+	public void displayCard(Hand hand) {
 
 		System.out.println(hand);
 	}
 
-	public void displayCardsAndValue(List<Card> hand, int value) {
-
-		for (Card c : hand) {
-			System.out.println(c);
+	public void displayCardsAndValue(Hand hand) {
+		int value = 0;
+		for (Hand h : hand) {
+			System.out.println(h);
+			value += h.getHandValue()
 		}
-		System.out.println("Total value = " + value);
+		System.out.println("Total value = " );
 	}
 
 	public void compareHands() {
