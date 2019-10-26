@@ -14,8 +14,8 @@ public class Dealer {
 //	private List<Card> phand = new ArrayList<>();
 //	private List<Card> dhand = new ArrayList<>();
 	private Deck deck = new Deck();
-	private Hand dhand = new BlackjackHand(); // Dealers Hand
-	private Hand phand = new BlackjackHand();	// Players Hand
+	private Hand dHand = new BlackjackHand(); // Dealers Hand
+	private Hand pHand = new BlackjackHand();	// Players Hand
 	
 	public Dealer() {
 
@@ -24,47 +24,45 @@ public class Dealer {
 	public void firstDeal() {
 		System.out.println("*Dealer shuffles deck*");
 		// Player being dealt first card
-		deck.dealCard(phand);
+		deck.dealCard(pHand);
 
 //		playerValue += c.getValue();
 //		phand.add(c);
 		System.out.println("*The dealer deals your first card face up*");
-		displayCard(phand);
+		displayCard(pHand);
 
 		// Dealer deals their card facedown
-		c = deck.dealCard();
-		dealerValue += c.getValue();
-		dhand.add(c);
+		deck.dealCard(dHand);
 		System.out.println("*Dealer deals their first card facedown*");
 
 		// Player being dealt second card
 		System.out.println("*The dealer deals your second card faceup*");
 		c = deck.dealCard();
-		System.out.println("[" + c.toString() + "]");
-		playerValue += c.getValue();
-		phand.add(c);
+		System.out.println("Hand is now: [" + pHand.get + "]");
+//		phand.getHandValue() += c.getValue();
+        deck.dealCard(pHand);
 		System.out.println();
 		System.out.println("Your hand is:");
-		displayCardsAndValue(phand, playerValue);
+		displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 		System.out.println();
 
 		// Dealer deals their second card face up
 		System.out.println("*The dealer deals their second card faceup*");
 		c = deck.dealCard();
-		dealerValue += c.getValue();
-		dhand.add(c);
+//		dhand.getHandValue() += c.getValue();
+		dHand.add(c);
 		System.out.println(c.toString());
 
 	}
 
 	public void nextDealPlayer() {
 		System.out.println("*Dealer deals next card*");
-		c = deck.dealCard();
+		deck.dealCard(pHand);
 		System.out.println(c.toString());
-		playerValue += c.getValue();
-		phand.add(c);
+//		phand.getHandValue() += c.getValue();
+//		pHand.add(c);
 		System.out.println("Your hand is now:");
-		displayCardsAndValue(phand, playerValue);
+		displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 		System.out.println();
 
 	}
@@ -72,21 +70,21 @@ public class Dealer {
 	public void nextDealDealer() {
 		System.out.println("*The dealer deals their next card faceup*");
 		c = deck.dealCard();
-		dealerValue += c.getValue();
-		dhand.add(c);
+		dhand.getHandValue() += c.getValue();
+		dHand.add(c);
 		System.out.println(c.toString());
 		System.out.println();
 	}
 
 	public void playerCheck() {
 
-		if (bHand.isBlackjack(playerValue) == true) {
+		if (pHand.isBlackjack(pHand.getHandValue()) == true) {
 			System.out.println("You got 21! Winner winner!!!");
 			System.out.println("*****Winning hand*****");
-			displayCardsAndValue(phand, playerValue);
+			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
-		} else if (bHand.isBust(playerValue) == true) {
+		} else if (pHand.isBust(pHand.getHandValue()) == true) {
 			System.out.println("You Lose!");
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
@@ -97,23 +95,23 @@ public class Dealer {
 	}
 
 	public void dealerCheck() {
-		if (bHand.isBlackjack(dealerValue) == true) {
+		if (dHand.isBlackjack(dHand.getHandValue()) == true) {
 			System.out.println("Dealer has won! Game over!");
 			System.out.println("Dealers winning hand:");
-			displayCardsAndValue(dhand, dealerValue);
+			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println();
 			System.out.println("Your losing hand:");
-			displayCardsAndValue(phand, playerValue);
+			displayCardsAndDealerValue(pHand, pHand.getHandValue());
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
 
-		} else if (bHand.isBust(dealerValue) == true) {
+		} else if (dHand.isBust(dHand.getHandValue()) == true) {
 			System.out.println("...Dealers losing hand...");
-			displayCardsAndValue(dhand, dealerValue);
+			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println("Dealer busts! You win!");
 			System.out.println();
 			System.out.println("*****Winning hand*****");
-			displayCardsAndValue(phand, playerValue);
+			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
 
@@ -122,7 +120,7 @@ public class Dealer {
 	}
 
 	public void dealerHitOrStay() {
-		while (dealerValue < 18) {
+		while (dHand.getHandValue() < 18) {
 			System.out.println("*Dealer Hits*");
 			nextDealDealer(); // Dealer deals their next card
 			dealerCheck(); // Checks if dealer has blackjack or has busted
@@ -136,33 +134,37 @@ public class Dealer {
 		System.out.println(hand);
 	}
 
-	public void displayCardsAndValue(Hand hand) {
-		int value = 0;
-		for (Hand h : hand) {
-			System.out.println(h);
-			value += h.getHandValue()
-		}
-		System.out.println("Total value = " );
+	
+	public void displayCardsAndPlayerValue() {
+		
+		System.out.println("Total value = " + pHand.getHandValue());
 	}
+	
+	public void displayCardsAndDealerValue() {
+		
+		System.out.println("Total value = " + pHand.getHandValue());
+	}
+	
 
 	public void compareHands() {
-		if (playerValue > dealerValue) {
+		if (pHand.getHandValue() > dHand.getHandValue()) {
 			System.out.println("You win!");
 			System.out.println("Dealers losing hand");
-			displayCardsAndValue(dhand, dealerValue);
+			System.out.println();
+			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println();
 			System.out.println("*****Winning hand*****");
-			displayCardsAndValue(phand, playerValue);
+			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
 
-		} else if (playerValue < dealerValue) {
+		} else if (pHand.getHandValue() < dHand.getHandValue()) {
 			System.out.println("You lose!");
 			System.out.println("Dealers winning hand:");
-			displayCardsAndValue(dhand, dealerValue);
+			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println();
 			System.out.println("Your losing hand:");
-			displayCardsAndValue(phand, playerValue);
+			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
 
@@ -172,10 +174,10 @@ public class Dealer {
 			System.out.println("No winner!");
 			System.out.println();
 			System.out.println("Dealers Hand:");
-			displayCardsAndValue(dhand, dealerValue);
+			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println();
 			System.out.println("Players Hand:");
-			displayCardsAndValue(phand, playerValue);
+			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.exit(0);
 
 		}
