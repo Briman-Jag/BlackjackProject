@@ -3,14 +3,12 @@ package com.skilldistillery.casino;
 import java.util.Scanner;
 
 import com.skilldistilery.blackjack.Dealer;
-import com.skilldistillery.cards.Card;
 import com.skilldistillery.cards.Deck;
 
 public class CasinoApp {
 
 	private Scanner kb = new Scanner(System.in);
 	private Deck deck = new Deck();
-	private Dealer deal = new Dealer();
 	private Dealer dealer = new Dealer();
 	private Player player = new Player();
 
@@ -29,7 +27,6 @@ public class CasinoApp {
 	public void blackJack() {
 
 		System.out.println("Let's play Blackjack! Feeling Lucky???");
-
 		System.out.println();
 		deal.firstDeal(); // Initiates games first deal
 		deal.playerCheck(); // Checks if player has Blackjack from start
