@@ -10,11 +10,11 @@ public class Dealer{
 
 	private int playerValue;
 	private int dealerValue;
-	private Card c = new Card(null, null);
+//	private Card c = new Card(null, null);
 	private List<Card> phand = new ArrayList<>();
 	private List<Card> dhand = new ArrayList<>();
 	private Deck deck = new Deck();
-	private BlackjackHand bHand = new BlackjackHand();
+	private Hand bHand = new BlackjackHand();
 	
 	public Dealer() {
 
