@@ -37,6 +37,7 @@ public class Deck {
 	// Takes card away from deck and then puts it into hand of dealer or player
 	public void dealCard(Hand hand) {
 		dealCard(hand);
+		
 	}
 
 	public void shuffle(List<Card> deck) {
