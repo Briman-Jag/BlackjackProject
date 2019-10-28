@@ -1,22 +1,13 @@
 package com.skilldistilery.blackjack;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.skilldistillery.cards.Card;
 import com.skilldistillery.cards.Deck;
 
 public class Dealer {
-	// DELETE as code related to fields are replaced
-//	private int playerValue;
-//	private int dealerValue;
-//	private Card c = new Card(null, null);
-//	private List<Card> phand = new ArrayList<>();
-//	private List<Card> dhand = new ArrayList<>();
 	private Deck deck = new Deck();
-	private Hand dHand = new BlackjackHand(); // Dealers Hand
-	private Hand pHand = new BlackjackHand();	// Players Hand
-	
+	private BlackjackHand dHand = new BlackjackHand(); // Dealers Hand
+	private BlackjackHand pHand = new BlackjackHand(); // Players Hand
+
 	public Dealer() {
 
 	}
@@ -25,9 +16,6 @@ public class Dealer {
 		System.out.println("*Dealer shuffles deck*");
 		// Player being dealt first card
 		deck.dealCard(pHand);
-
-//		playerValue += c.getValue();
-//		phand.add(c);
 		System.out.println("*The dealer deals your first card face up*");
 		displayCard(pHand);
 
@@ -37,65 +25,50 @@ public class Dealer {
 
 		// Player being dealt second card
 		System.out.println("*The dealer deals your second card faceup*");
-		c = deck.dealCard();
-		System.out.println("Hand is now: [" + pHand.get + "]");
-//		phand.getHandValue() += c.getValue();
-        deck.dealCard(pHand);
-		System.out.println();
-		System.out.println("Your hand is:");
+		deck.dealCard(pHand);
 		displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 		System.out.println();
 
 		// Dealer deals their second card face up
 		System.out.println("*The dealer deals their second card faceup*");
-		c = deck.dealCard();
-//		dhand.getHandValue() += c.getValue();
-		dHand.add(c);
-		System.out.println(c.toString());
+		deck.dealCard(dHand);
+		dealerFaceUpCard(dHand);
+		System.out.println();
 
 	}
 
 	public void nextDealPlayer() {
 		System.out.println("*Dealer deals next card*");
 		deck.dealCard(pHand);
-		System.out.println(c.toString());
-//		phand.getHandValue() += c.getValue();
-//		pHand.add(c);
-		System.out.println("Your hand is now:");
+		System.out.println(pHand);
 		displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 		System.out.println();
-
 	}
 
 	public void nextDealDealer() {
 		System.out.println("*The dealer deals their next card faceup*");
-		c = deck.dealCard();
-		dhand.getHandValue() += c.getValue();
-		dHand.add(c);
-		System.out.println(c.toString());
+		deck.dealCard(dHand);
+		dealerFaceUpCard(dHand);
 		System.out.println();
 	}
 
 	public void playerCheck() {
 
-		if (pHand.isBlackjack(pHand.getHandValue()) == true) {
+		if (pHand.isBlackjack(pHand)) {
 			System.out.println("You got 21! Winner winner!!!");
 			System.out.println("*****Winning hand*****");
 			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
-		} else if (pHand.isBust(pHand.getHandValue()) == true) {
+		} else if (pHand.isBust(pHand)) {
 			System.out.println("You Lose!");
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
-		} else {
-
-		}
-
+		} 
 	}
 
 	public void dealerCheck() {
-		if (dHand.isBlackjack(dHand.getHandValue()) == true) {
+		if (dHand.isBlackjack(dHand)) {
 			System.out.println("Dealer has won! Game over!");
 			System.out.println("Dealers winning hand:");
 			displayCardsAndDealerValue(dHand, dHand.getHandValue());
@@ -105,7 +78,7 @@ public class Dealer {
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
 
-		} else if (dHand.isBust(dHand.getHandValue()) == true) {
+		} else if (dHand.isBust(dHand)) {
 			System.out.println("...Dealers losing hand...");
 			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println("Dealer busts! You win!");
@@ -130,21 +103,24 @@ public class Dealer {
 	}
 
 	public void displayCard(Hand hand) {
-
 		System.out.println(hand);
 	}
 
-	
-	public void displayCardsAndPlayerValue() {
-		
-		System.out.println("Total value = " + pHand.getHandValue());
+	public void dealerFaceUpCard(Hand hand) {
+		Card card = hand.getCards().get(hand.getCards().size() - 1);
+		System.out.println(card);
+
 	}
-	
-	public void displayCardsAndDealerValue() {
-		
-		System.out.println("Total value = " + pHand.getHandValue());
+
+	public void displayCardsAndPlayerValue(Hand pHand, int handValue) {
+		System.out.println("Players hand is: " + pHand);
+		System.out.println("Total value = " + handValue);
 	}
-	
+
+	public void displayCardsAndDealerValue(Hand dHand, int handValue) {
+		System.out.println("Dealerss hand is: " + dHand);
+		System.out.println("Total value = " + handValue);
+	}
 
 	public void compareHands() {
 		if (pHand.getHandValue() > dHand.getHandValue()) {

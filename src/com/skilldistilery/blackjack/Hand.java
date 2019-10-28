@@ -13,6 +13,14 @@ public abstract class Hand {
 
 	}
 
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+
 	public void addCard(Card card) {
 		cards.add(card);
 		
@@ -28,5 +36,6 @@ public abstract class Hand {
 		builder.append("");
 		return builder.toString();
 	}
+
 
 }

@@ -3,12 +3,10 @@ package com.skilldistillery.casino;
 import java.util.Scanner;
 
 import com.skilldistilery.blackjack.Dealer;
-import com.skilldistillery.cards.Deck;
 
 public class CasinoApp {
 
 	private Scanner kb = new Scanner(System.in);
-	private Deck deck = new Deck();
 	private Dealer dealer = new Dealer();
 	private Player player = new Player();
 
@@ -28,17 +26,17 @@ public class CasinoApp {
 
 		System.out.println("Let's play Blackjack! Feeling Lucky???");
 		System.out.println();
-		deal.firstDeal(); // Initiates games first deal
-		deal.playerCheck(); // Checks if player has Blackjack from start
-		deal.dealerCheck(); // Checks if dealer has blackjack or has busted
+		dealer.firstDeal(); // Initiates games first deal
+		dealer.playerCheck(); // Checks if player has Blackjack from start
+		dealer.dealerCheck(); // Checks if dealer has blackjack or has busted
 		decisionMenu(); // Brings up players option menu to Hit, Stay, or Quit
 		userDecision(); // User chooses to HIT, STAY, or quit
-		deal.playerCheck(); // Checks if player has black jack or has busted
+		dealer.playerCheck(); // Checks if player has black jack or has busted
 
 		// After player decides to stay and has not gone over 21
-		deal.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
-		deal.dealerCheck();
-		deal.compareHands();
+		dealer.dealerHitOrStay(); // Logic for dealer to decide to Hit or Stay
+		dealer.dealerCheck();
+		dealer.compareHands();
 
 		kb.close();
 		System.exit(0);
@@ -67,13 +65,12 @@ public class CasinoApp {
 				System.out.println("Please enter valid number choice.");
 			}
 		} while (!valid);
-
 		switch (choice) {
 
 		case 1:
 			System.out.println("You HIT");
-			deal.nextDealPlayer();
-			deal.playerCheck();
+			dealer.nextDealPlayer();
+			dealer.playerCheck();
 			decisionMenu();
 			userDecision();
 			break;

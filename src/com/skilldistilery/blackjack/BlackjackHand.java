@@ -11,23 +11,26 @@ public class BlackjackHand extends Hand {
 	// Need to add the cards in hand to get complete value of Hand.
 	@Override
 	public int getHandValue() {
-		
-		return ((Card) cards).getValue();
+		int value = 0;
+		for (Card card : cards) {
+			value += card.getValue();
+		}
+		return value;
 	}
 
 	// If hand value = 21
-	public boolean isBlackjack() {
+	public boolean isBlackjack(BlackjackHand hand) {
 		boolean blackj = false;
-		if (((Card) cards).getValue() == 21) {
+		if (hand.getHandValue() == 21) {
 			blackj = true;
 		}
 		return blackj;
 	}
 
 	// if hand value > 21
-	public boolean isBust() {
+	public boolean isBust(BlackjackHand hand) {
 		boolean bust = false;
-		if (((Card) cards).getValue() > 21) {
+		if (hand.getHandValue() > 21) {
 			bust = true;
 			System.out.println("Busted!");
 		}
