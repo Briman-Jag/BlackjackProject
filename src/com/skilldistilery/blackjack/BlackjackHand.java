@@ -8,7 +8,7 @@ public class BlackjackHand extends Hand {
 
 	}
 	
-	// Need to add the cards in hand to get complete value of Hand.
+	// Adds the cards in hand to get complete value of Hand.
 	@Override
 	public int getHandValue() {
 		int value = 0;
