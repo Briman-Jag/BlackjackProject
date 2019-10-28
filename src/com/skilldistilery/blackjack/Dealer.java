@@ -54,13 +54,13 @@ public class Dealer {
 
 	public void playerCheck() {
 
-		if (pHand.isBlackjack(pHand)) {
+		if (pHand.isBlackjack()) {
 			System.out.println("You got 21! Winner winner!!!");
 			System.out.println("*****Winning hand*****");
 			displayCardsAndPlayerValue(pHand, pHand.getHandValue());
 			System.out.println("You got lucky! Good game!");
 			System.exit(0);
-		} else if (pHand.isBust(pHand)) {
+		} else if (pHand.isBust()) {
 			System.out.println("You Lose!");
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
@@ -68,7 +68,7 @@ public class Dealer {
 	}
 
 	public void dealerCheck() {
-		if (dHand.isBlackjack(dHand)) {
+		if (dHand.isBlackjack()) {
 			System.out.println("Dealer has won! Game over!");
 			System.out.println("Dealers winning hand:");
 			displayCardsAndDealerValue(dHand, dHand.getHandValue());
@@ -78,7 +78,7 @@ public class Dealer {
 			System.out.println("Too bad! Thanks for playing!");
 			System.exit(0);
 
-		} else if (dHand.isBust(dHand)) {
+		} else if (dHand.isBust()) {
 			System.out.println("...Dealers losing hand...");
 			displayCardsAndDealerValue(dHand, dHand.getHandValue());
 			System.out.println("Dealer busts! You win!");
